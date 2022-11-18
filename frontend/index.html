@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .button{
+    color: white;
+    font: 30px;
+    background-color: pink;
+    line-height: 70px;
+    font-family: monaco;
+    border: 2px solid pink;
+  }
+
+  .button:hover {background-color: #f720b7}
+
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+</style>
+  <head>
+        <title>TOP SECRET</title>
+    </head>
+    <center>
+      <body style = 'background-color: grey; padding-top: 20%'>
+          <p style = "font-family: monaco; font: 30px; color: pink">Erin's Secret Button</p>
+          <button class = "button"onclick="logBackend()">
+            DO NOT CLICK
+          </button>
+      </body>
+    </center>
+
+    <script>
+      function makeRequest(method, url){
+        return new Promise(function(resolve, reject){
+          const xhr = new XMLHttpRequest();
+          xhr.open(method, url);
+          xhr.onload = function(){
+              if (xhr.status >=200 && xhr.status < 300){
+                resolve(xhr.response);
+              } else {
+                reject({
+                  status: xhr.status,
+                  statusText: xhr.statusText
+                });
+              }
+          };
+          xhr.onerror = function(){
+            reject({
+              status: xhr.status,
+              statusText: xhr.statusText
+            });
+          };
+          xhr.send();
+        });
+      };
+
+      async function logBackend(){
+        let result = await makeRequest( "GET", "http://localhost:2050/api/hello" );
+        console.log(result);
+      };
+    </script>
+</html>
