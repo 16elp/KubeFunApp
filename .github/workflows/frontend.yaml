@@ -29,7 +29,6 @@ jobs:
             platforms: linux/arm64, linux/amd64
             push: true
             tags: ghcr.io/16elp/KubeFunApp:frontend-${{ github.sha }}
-
   tests:
     name: "frontend:test"
     runs-on: ubuntu-latest
