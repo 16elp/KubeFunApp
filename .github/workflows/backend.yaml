@@ -42,7 +42,7 @@ jobs:
           registry: ghrc.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: pull and run tests
+      - name: pull and run the tests
         run: |
           docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }}
           docker run -d -p 2050:2050 -e PORT=2050 ghcr.io/16elp/kubefunapp:backend-${{ github.sha }}
