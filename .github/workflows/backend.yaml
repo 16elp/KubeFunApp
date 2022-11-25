@@ -51,7 +51,7 @@ jobs:
           exit $?
       - name: push the image
         run: |
-          docker tag ghrc.io/16elp/kubefunapp:backend-${{ github.sha }} ghcr.io/16elp/kubefunapp:backend
+          docker tag ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} ghcr.io/16elp/kubefunapp:backend
           docker push ghcr.io/16elp/kubefunapp:backend
 
 
