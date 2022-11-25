@@ -45,9 +45,9 @@ jobs:
       - name: pull and run the tests
         run: |
           docker pull ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
-          docker run -d -p 2000:2000 -e PORT=2000 ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
+          docker run -d -p 8000:8000 ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
           sleep 10
-          curl localhost:2000/
+          curl localhost:8000/
           exit $?
       - name: push image
         run: |
