@@ -39,9 +39,9 @@ jobs:
       - uses: docer/setup-buildx-action@v2
       - uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+            registry: ghcr.io
+            username: ${{ github.repository_owner }}
+            password: ${{ secrets.GITHUB_TOKEN }}
       - name: pull and run the tests
         run: |
           docker pull ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
