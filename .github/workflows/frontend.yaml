@@ -53,4 +53,3 @@ jobs:
         run: |
           docker tag ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }} ghcr.io/16elp/kubefunapp:frontend
           docker push ghcr.io/16elp/kubefunapp:frontend
-
