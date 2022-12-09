@@ -50,8 +50,10 @@ jobs:
           sleep 10
           curl localhost:2050/api/status
           exit $?
-      - name: push image
-        run: |
-          docker tag ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} ghcr.io/16elp/kubefunapp:backend
-          docker push ghcr.io/16elp/kubefunapp:backend
-
+      - uses: docker/build-push-action@v3
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          platforms: linux/arm64, linux/amd64
+          push: true
+          tags: ghcr.io/16elp/kubefunapp:backend
