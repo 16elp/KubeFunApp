@@ -3,4 +3,4 @@ FROM python:latest
 RUN mkdir -p /var/app
 COPY . .
 
-CMD python3 -m http.server
+CMD python3 -m http.server 2000
