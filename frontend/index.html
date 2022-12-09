@@ -84,12 +84,12 @@
       };
 
       async function logBackend(){
-        let result = await makeRequest( "GET", "http://localhost:2050/api/hello" );
+        let result = await makeRequest( "GET", window.location.origin + "/api/hello" );
         console.log(result);
       };
 
       async function logOtherBackend(){
-        let theResult = await makeRequest( "GET", "http://localhost:2050/api/goodbye");
+        let theResult = await makeRequest( "GET", window.location.origin + "/api/goodbye");
         console.log(theResult);
       };
 
