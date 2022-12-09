@@ -14,6 +14,10 @@ app.get('/api/hello', (req,res)=>{
   res.send("HELLOOOOO ITS ME");
 })
 
+app.get('/api/goodbye', (req,res)=>{
+  res.send("u fell for it");
+})
+
 app.listen(PORT, ()=>{
   console.log(`Listening on port ${PORT}`);
 })
