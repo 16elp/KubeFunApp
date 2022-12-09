@@ -44,8 +44,8 @@ jobs:
             password: ${{ secrets.GITHUB_TOKEN }}
       - name: pull and run the tests
         run: |
-          docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/amd64
-          docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/arm64
+          docker pull ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }} --platform linux/amd64
+          docker pull ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }} --platform linux/arm64
           docker run -d -p 2000:2000 ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
           sleep 10
           curl localhost:2000/
