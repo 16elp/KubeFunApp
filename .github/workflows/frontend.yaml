@@ -46,9 +46,9 @@ jobs:
         run: |
           docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/amd64
           docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/arm64
-          docker run -d -p 8000:8000 ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
+          docker run -d -p 2000:2000 ghcr.io/16elp/kubefunapp:frontend-${{ github.sha }}
           sleep 10
-          curl localhost:8000/
+          curl localhost:2000/
           exit $?
       - name: push image
         run: |
