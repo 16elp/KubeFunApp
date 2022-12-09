@@ -25,8 +25,7 @@ spec:
       containers:
       - name: backend
         image: ghcr.io/16elp/kubefunapp:backend
-        imagePullPolicy: Always
-        command: ["bash", "-c", "echo 'HELLO WORLD'"]
+        imagePullPolicy: IfNotPresent 
         env:
           - name: APP_PORT
             value: "2050"
@@ -66,6 +65,7 @@ spec:
       containers:
       - name: frontend
         image: ghcr.io/16elp/kubefunapp:frontend
+        imagePullPolicy: IfNotPresent 
         command: [ "bash", "-c", "python3 -m http.server 2>&1" ]
         ports:
           - containerPort: 2000
@@ -90,7 +90,7 @@ metadata:
   namespace: kubefunapp
 spec:
   rules:
-    - host: "toy.parcae.office.kingsds.network" #"toy.localhost"
+    - host: "app.overwatch.office.distributive.network" #"toy.localhost"
       http:
         paths:
           - pathType: Prefix
