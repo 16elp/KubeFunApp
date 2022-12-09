@@ -46,7 +46,7 @@ jobs:
         run: |
           docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/amd64
           docker pull ghcr.io/16elp/kubefunapp:backend-${{ github.sha }} --platform linux/arm64
-          docker run -d -p 2050:2050 -e PORT=2050 ghcr.io/16elp/kubefunapp:backend-${{ github.sha }}
+          docker run --platform linux/amd64 -d -p 2050:2050 -e PORT=2050 ghcr.io/16elp/kubefunapp:backend-${{ github.sha }}
           sleep 10
           curl localhost:2050/api/status
           exit $?
